@@ -1,2 +1,144 @@
 @import "elr-scss-functions/src/main";
-@import "src/modals";
+@import "elr-scss-helpers/src/main";
+
+@include elr-button-classes;
+@include elr-buttons-action;
+
+@mixin elr-dialog($config: ()) {
+  background-color: rgba(#fff, 0.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  padding-top: 32px;
+
+  &[open="true"] {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .elr-button-close {
+    color: #111;
+    font-size: 32px;
+    font-weight: 900;
+    position: absolute;
+    right: 24px;
+    top: 16px;
+    border: 0;
+    box-shadow: none;
+    background: none;
+    padding: 4px 8px;
+    line-height: 1;
+    cursor: pointer;
+  }
+}
+
+@mixin elr-modal($config: ()) {
+  $config: extend(
+    (
+      background-color: #fff,
+      accent-color: #1976d2,
+      border-radius: 5px,
+      border-color: #ccc,
+    ),
+    $config
+  );
+
+  $background-color: map-get($config, background-color);
+  $accent-color: map-get($config, accent-color);
+  $border-radius: map-get($config, border-radius);
+  $border-color: map-get($config, border-color);
+  $border: 1px solid $border-color;
+
+  max-height: 90vh;
+  z-index: 1000;
+  background-color: $background-color;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4), 0 -1px 5px rgba(0, 0, 0, 0.4);
+  padding: 0;
+  width: 600px;
+  max-width: 90%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border-radius: $border-radius;
+
+  @if ($border-color != "none") {
+    // border: $border;
+
+    // .elr-header {
+    //   border-bottom: $border;
+    // }
+
+    .elr-footer {
+      border-top: $border;
+    }
+  }
+
+  .elr-header {
+    background-color: $accent-color;
+
+    .elr-header-title {
+      color: #fff;
+      font-weight: 900;
+    }
+
+    p {
+      color: #fff;
+    }
+  }
+
+  .elr-header,
+  .elr-body,
+  .elr-footer {
+    padding: 16px 32px;
+  }
+
+  .elr-body {
+    overflow: auto;
+    padding: 8px 32px 16px;
+
+    p {
+      font-size: 16px;
+      margin: 8px 0;
+    }
+  }
+
+  .elr-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 16px;
+  }
+
+  .elr-header-title {
+    font-size: 24px;
+  }
+
+  // form { @include elr-tabular-form; }
+
+  .elr-button {
+    font-size: 14px;
+    min-width: 0;
+    padding: 8px 16px;
+    margin-right: 8px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .elr-modal-video {
+    text-align: center;
+
+    iframe {
+      display: inline-block;
+    }
+  }
+}

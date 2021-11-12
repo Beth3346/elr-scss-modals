@@ -22,9 +22,10 @@
     "gulp-clean-css": "^4.3.0",
     "gulp-plumber": "^1.2.1",
     "gulp-sass": "^5.0.0",
+    "gulp-uglify": "^3.0.2",
     "husky": "^7.0.4",
     "np": "^7.5.0",
-    "npm-check-updates": "^11.8.5",
+    "npm-check-updates": "^12.0.2",
     "sass": "^1.43.4"
   },
   "homepage": "http://www.elizabeth-rogers.com/elr-utilities/css.html",
@@ -38,6 +39,8 @@
     "url": "https://github.com/Beth3346/elr-scss-modals.git"
   },
   "dependencies": {
-    "elr-scss-functions": "1.1.6"
+    "elr-scss-functions": "1.1.6",
+    "elr-scss-helpers": "^0.0.10",
+    "elr-scss-reset": "^0.0.6"
   }
 }
