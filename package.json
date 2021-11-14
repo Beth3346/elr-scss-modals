@@ -13,7 +13,7 @@
     "test": "gulp clean && gulp",
     "update": "ncu -u",
     "update:install": "ncu -u && npm install",
-    "publish": "np"
+    "np": "np"
   },
   "devDependencies": {
     "del": "^6.0.0",
@@ -38,9 +38,13 @@
     "type": "git",
     "url": "https://github.com/Beth3346/elr-scss-modals.git"
   },
+  "np": {
+    "yarn": false,
+    "branch": "main"
+  },
   "dependencies": {
     "elr-scss-functions": "1.1.6",
-    "elr-scss-helpers": "^0.0.10",
+    "elr-scss-helpers": "^0.0.11",
     "elr-scss-reset": "^0.0.6"
   }
 }

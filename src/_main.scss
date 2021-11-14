@@ -5,7 +5,7 @@
 @include elr-buttons-action;
 
 @mixin elr-dialog($config: ()) {
-  background-color: rgba(#fff, 0.7);
+  background-color: rgba(#fff, 0.8);
   position: fixed;
   top: 0;
   left: 0;
@@ -26,7 +26,7 @@
   }
 
   .elr-button-close {
-    color: #111;
+    color: $accent-color;
     font-size: 32px;
     font-weight: 900;
     position: absolute;
@@ -59,11 +59,12 @@
   $border: 1px solid $border-color;
 
   max-height: 90vh;
+  height: 500px;
   z-index: 1000;
   background-color: $background-color;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4), 0 -1px 5px rgba(0, 0, 0, 0.4);
   padding: 0;
-  width: 600px;
+  width: 700px;
   max-width: 90%;
   overflow: hidden;
   display: flex;
@@ -84,14 +85,20 @@
 
   .elr-header {
     background-color: $accent-color;
+    border-radius: $border-radius $border-radius 0 0;
+    overflow: hidden;
+    border: 1px solid $accent-color;
+    // flex-basis: 90px;
 
     .elr-header-title {
       color: #fff;
       font-weight: 900;
+      font-size: 32px;
     }
 
     p {
       color: #fff;
+      font-size: 14px;
     }
   }
 
@@ -102,8 +109,14 @@
   }
 
   .elr-body {
-    overflow: auto;
-    padding: 8px 32px 16px;
+    overflow: hidden auto;
+    padding: 16px 32px 16px;
+    line-height: 1.5;
+    flex: 1;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
     p {
       font-size: 16px;
@@ -115,6 +128,8 @@
     display: flex;
     justify-content: flex-end;
     padding: 16px;
+    border-radius: 0 0 $border-radius $border-radius;
+    overflow: hidden;
   }
 
   .elr-header-title {

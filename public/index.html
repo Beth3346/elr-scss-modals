@@ -12,7 +12,7 @@
   <title>Modals Demo | ELR CSS Utilities</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"
     integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
     crossorigin="anonymous">
@@ -25,9 +25,10 @@
     <div class="content-holder">
       <h1 class="main-heading">Modals</h1>
       <div class="demo-content">
-        <dialog class="modal-blackout" open="true">
+        <button data-alertid="alert-1" class="js-show-alert">Show Alert</button>
+        <dialog id="alert-1" class="modal-blackout" open="false">
           <button class="elr-button-close">&times;</button>
-          <section class="modal">
+          <section class="modal modal-alert">
             <header class="elr-header">
               <h2 class="elr-header-title">Modal Heading</h2>
               <p>This is a modal with some information</p>
@@ -35,16 +36,22 @@
             <div class="elr-body">
               <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi suscipit, officia quos error recusandae quisquam fuga cumque reprehenderit tempora, porro quod ad necessitatibus, harum labore.</p>
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora magnam commodi voluptatibus quidem dignissimos aliquid amet ut beatae error reiciendis?</p>
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi suscipit, officia quos error recusandae quisquam fuga cumque reprehenderit tempora, porro quod ad necessitatibus, harum labore.</p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora magnam commodi voluptatibus quidem dignissimos aliquid amet ut beatae error reiciendis?</p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea illo, soluta explicabo harum sit temporibus deserunt itaque, facere accusantium placeat odio sunt fugit fugiat repellendus qui, sapiente voluptates quo hic necessitatibus sint ipsam animi! Magni reprehenderit suscipit quos, laboriosam doloribus qui, assumenda culpa pariatur doloremque ratione necessitatibus incidunt deserunt consectetur.</p>
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi suscipit, officia quos error recusandae quisquam fuga cumque reprehenderit tempora, porro quod ad necessitatibus, harum labore.</p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora magnam commodi voluptatibus quidem dignissimos aliquid amet ut beatae error reiciendis?</p>
             </div>
             <div class="elr-footer">
-              <button class="elr-button">Confirm</button>
-              <button class="elr-button elr-button-ghost">Cancel</button>
+              <button data-alertid="alert-1" class="elr-button js-button-confirm">Confirm</button>
+              <button data-alertid="alert-1" class="elr-button elr-button-ghost js-button-cancel">Cancel</button>
             </div>
           </section>
         </dialog>
       </div>
     </div>
   </div>
+  <script src="scripts/script.js"></script>
 </body>
 
 </html>
