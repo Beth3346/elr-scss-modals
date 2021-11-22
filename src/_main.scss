@@ -1,11 +1,12 @@
 @import "elr-scss-functions/src/main";
+@import "elr-scss-config/src/main";
 @import "elr-scss-helpers/src/main";
 
 @include elr-button-classes;
 @include elr-buttons-action;
 
 @mixin elr-dialog($config: ()) {
-  background-color: rgba(#fff, 0.8);
+  background-color: rgba($white, 0.8);
   position: fixed;
   top: 0;
   left: 0;
@@ -18,7 +19,7 @@
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
-  padding-top: 32px;
+  padding-top: ($base-fontsize * 2);
 
   &[open="true"] {
     opacity: 1;
@@ -27,15 +28,15 @@
 
   .elr-button-close {
     color: $accent-color;
-    font-size: 32px;
+    font-size: ($base-fontsize * 2);
     font-weight: 900;
     position: absolute;
-    right: 24px;
-    top: 16px;
+    right: ($base-fontsize * 1.5);
+    top: $base-fontsize;
     border: 0;
     box-shadow: none;
     background: none;
-    padding: 4px 8px;
+    padding: ($base-fontsize * 0.25) ($base-fontsize * 0.5);
     line-height: 1;
     cursor: pointer;
   }
@@ -44,10 +45,12 @@
 @mixin elr-modal($config: ()) {
   $config: extend(
     (
-      background-color: #fff,
-      accent-color: #1976d2,
-      border-radius: 5px,
-      border-color: #ccc,
+      background-color: $white,
+      accent-color: $primary-color,
+      border-radius: $border-radius,
+      border-color: $light-gray,
+      height: 500px,
+      width: 700px,
     ),
     $config
   );
@@ -56,15 +59,17 @@
   $accent-color: map-get($config, accent-color);
   $border-radius: map-get($config, border-radius);
   $border-color: map-get($config, border-color);
+  $height: map-get($config, height);
+  $width: map-get($config, width);
   $border: 1px solid $border-color;
 
   max-height: 90vh;
-  height: 500px;
+  height: $height;
+  width: $width;
   z-index: 1000;
   background-color: $background-color;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4), 0 -1px 5px rgba(0, 0, 0, 0.4);
+  box-shadow: $shadow;
   padding: 0;
-  width: 700px;
   max-width: 90%;
   overflow: hidden;
   display: flex;
@@ -72,12 +77,6 @@
   border-radius: $border-radius;
 
   @if ($border-color != "none") {
-    // border: $border;
-
-    // .elr-header {
-    //   border-bottom: $border;
-    // }
-
     .elr-footer {
       border-top: $border;
     }
@@ -88,29 +87,28 @@
     border-radius: $border-radius $border-radius 0 0;
     overflow: hidden;
     border: 1px solid $accent-color;
-    // flex-basis: 90px;
 
     .elr-header-title {
-      color: #fff;
+      color: $white;
       font-weight: 900;
-      font-size: 32px;
+      font-size: ($base-fontsize * 2);
     }
 
     p {
-      color: #fff;
-      font-size: 14px;
+      color: $white;
+      font-size: $base-fontsize * 0.875;
     }
   }
 
   .elr-header,
   .elr-body,
   .elr-footer {
-    padding: 16px 32px;
+    padding: $base-fontsize ($base-fontsize * 2);
   }
 
   .elr-body {
     overflow: hidden auto;
-    padding: 16px 32px 16px;
+    padding: $base-fontsize ($base-fontsize * 2) $base-fontsize;
     line-height: 1.5;
     flex: 1;
 
@@ -119,30 +117,28 @@
     }
 
     p {
-      font-size: 16px;
-      margin: 8px 0;
+      font-size: $base-fontsize;
+      margin: ($base-fontsize * 0.5) 0;
     }
   }
 
   .elr-footer {
     display: flex;
     justify-content: flex-end;
-    padding: 16px;
+    padding: $base-fontsize;
     border-radius: 0 0 $border-radius $border-radius;
     overflow: hidden;
   }
 
   .elr-header-title {
-    font-size: 24px;
+    font-size: ($base-fontsize * 1.5);
   }
 
-  // form { @include elr-tabular-form; }
-
   .elr-button {
-    font-size: 14px;
+    font-size: $base-fontsize * 0.875;
     min-width: 0;
-    padding: 8px 16px;
-    margin-right: 8px;
+    padding: ($base-fontsize * 0.5) $base-fontsize;
+    margin-right: ($base-fontsize * 0.5);
 
     &:last-child {
       margin-right: 0;
