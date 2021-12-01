@@ -26,7 +26,7 @@
     visibility: visible;
   }
 
-  .elr-button-close {
+  .button-close {
     color: $accent-color;
     font-size: ($base-fontsize * 2);
     font-weight: 900;
@@ -77,18 +77,18 @@
   border-radius: $border-radius;
 
   @if ($border-color != "none") {
-    .elr-footer {
+    .footer {
       border-top: $border;
     }
   }
 
-  .elr-header {
+  .header {
     background-color: $accent-color;
     border-radius: $border-radius $border-radius 0 0;
     overflow: hidden;
     border: 1px solid $accent-color;
 
-    .elr-header-title {
+    .header-title {
       color: $white;
       font-weight: 900;
       font-size: ($base-fontsize * 2);
@@ -104,13 +104,13 @@
     }
   }
 
-  .elr-header,
-  .elr-body,
-  .elr-footer {
+  .header,
+  .body,
+  .footer {
     padding: $base-fontsize ($base-fontsize * 2);
   }
 
-  .elr-body {
+  .body {
     overflow: hidden auto;
     padding: $base-fontsize ($base-fontsize * 2) $base-fontsize;
     line-height: 1.5;
@@ -126,7 +126,7 @@
     }
   }
 
-  .elr-footer {
+  .footer {
     display: flex;
     justify-content: flex-end;
     padding: $base-fontsize;
@@ -134,7 +134,7 @@
     overflow: hidden;
   }
 
-  .elr-header-title {
+  .header-title {
     font-size: ($base-fontsize * 1.5);
   }
 
@@ -149,7 +149,7 @@
     }
   }
 
-  .elr-modal-video {
+  .modal-video {
     text-align: center;
 
     iframe {
